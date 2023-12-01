@@ -13,8 +13,11 @@ public class ChangeWeapon : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         GameObject PickUpWeapon = currentWeapon;
-        
-            
+
+        if (weapon != null)
+        {
+            PickUpWeapon(currentWeapon);
+        }
     }
 
     // Update is called once per frame
