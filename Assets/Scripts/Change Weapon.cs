@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class ChangeWeapon : MonoBehaviour
 {
-    private GameObject pickedUpItem;
+    private GameObject PickUpWeapon;
     
     // Start is called before the first frame update
     void Start()
     {
+        // if it's not the player, don't pick up item
+        if (!other.CompareTag("Player")) return;
+
+        GameObject PickUpWeapon = currentWeapon;
         
+            
     }
 
     // Update is called once per frame
@@ -17,6 +22,12 @@ public class ChangeWeapon : MonoBehaviour
     {
         
     }
+
+    //void PickUpWeapon()
+ //   {
+        
+ //   }
+    
 }
 
 
