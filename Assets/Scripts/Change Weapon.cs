@@ -4,33 +4,39 @@ using UnityEngine;
 
 public class ChangeWeapon : MonoBehaviour
 {
-    private GameObject PickUpWeapon;
+    private GameObject weapon;
+    public GameObject currentWeapon;
+    public GameObject newWeapon;
     
     // Start is called before the first frame update
     void Start()
     {
-        // if it's not the player, don't pick up item
-        if (!other.CompareTag("Player")) return;
+        GameObject weapon = GetNewWeapon;
 
-        GameObject PickUpWeapon = currentWeapon;
-
-        if (weapon != null)
+        //checks that the weapon is found
+        if (currentWeapon != null)
         {
-            PickUpWeapon(currentWeapon);
+            //call method to pick up new weapon
+            PickUpWeapon(newWeapon);
+            
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // if it's not the player, don't pick up item
+        if (!other.CompareTag("Player")) return;
+    }
+    private GameObject PickUpWeapon()
+    {
+        //if the player collides with the a weapon, deactivate current weapon and activate new item
+        if (PickUpWeapon = true)
+        {
+            currentWeapon.SetActive(false);
+            newWeapon.SetActive(true);
+        }
     }
 
-    //void PickUpWeapon()
- //   {
-        
- //   }
-    
 }
 
 
