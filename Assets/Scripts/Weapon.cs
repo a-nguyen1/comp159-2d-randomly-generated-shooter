@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private AudioClip shotSound;
     private int currentAmmo;
     private AudioSource source;
-
+    [SerializeField] private AudioClip ammoPickup;
     void Start()
     {
         currentAmmo = maximumAmmo;
@@ -69,6 +69,7 @@ public class Weapon : MonoBehaviour
     public void ChangeAmmo(int ammo)
     {
         currentAmmo = Mathf.Clamp(currentAmmo + ammo, 0, maximumAmmo);
+        source.PlayOneShot(ammoPickup);
     }
 
     public WeaponType GetWeaponType()

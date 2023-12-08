@@ -8,7 +8,6 @@ public class ItemController : MonoBehaviour
 {
     [SerializeField]
     private ItemType item;
-    private AudioClip pickupSound;
 
     private enum ItemType
     {
@@ -27,7 +26,6 @@ public class ItemController : MonoBehaviour
         {
         }
     }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
@@ -75,15 +73,6 @@ public class ItemController : MonoBehaviour
             weapon = weaponManager.GetWeaponOfType(type).GetComponent<Weapon>();
         }
         weapon.ChangeAmmo(amount);
-        PlayPickupSound();
-    }
-
-    private void PlayPickupSound()
-    {
-        if (pickupSound != null)
-        {
-            AudioSource.PlayClipAtPoint(pickupSound, transform.position);
-        }
     }
 
     void HealPlayer(GameObject player)
